@@ -355,7 +355,7 @@ var pizzaElementGenerator = function(i) {
   pizzaDescriptionContainer = document.createElement("div");
 
   pizzaContainer.classList.add("randomPizzaContainer");
-  pizzaContainer.style.width = "33.33%";
+  //pizzaContainer.style.width = "33.33%";
   pizzaContainer.style.height = "325px";
   pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
   pizzaImageContainer.classList.add("col-md-6");
@@ -428,8 +428,23 @@ var resizePizzas = function(size) {
     var pizzaElements = document.getElementsByClassName("randomPizzaContainer");
     var numPizzaElements = pizzaElements.length;
     var windowWidth = document.getElementById("randomPizzas").offsetWidth;
+    var randomOffset = pizzaElements[0].offsetWidth;
+    var dxConstant = determineDx(pizzaElements[0], size, windowWidth);
+
+    function getStyle(className) {
+      var classes = document.styleSheets[0].rules || document.styleSheets[0].cssRules;
+      for (var x = 0; x < classes.length; x++) {
+          if (classes[x].selectorText == className) {
+              return classes[x];
+          }
+      }
+    }
+    var randomPizzaContainerClass = getStyle('.randomPizzaContainer');
+    randomPizzaContainerClass.style.width = randomOffset + dxConstant + 'px';
+
+
     for (var i = 0; i < numPizzaElements; i++) {
-      pizzaElements[i].style.width = (pizzaElements[i].offsetWidth + determineDx(pizzaElements[i], size, windowWidth)) + 'px';
+      //pizzaElements[i].style.width = (pizzaElements[i].offsetWidth + dxConstant) + 'px';
     }
   }
 
@@ -514,4 +529,6 @@ document.addEventListener('DOMContentLoaded', function() {
     movingPizzas1.appendChild(elem);
   }
   updatePositions();
+  //resize all pizzas to correct any inline styles.
+  resizePizzas("2");
 });
