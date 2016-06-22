@@ -53,3 +53,26 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 
 * <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
 * <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
+
+
+### Project Instructions
+1.  Install grunt sudo npm install -g grunt
+2.  Run grunt cssmin and grunt uglify
+3.  Execute python -m SimpleHttpServer
+
+### main.js changes
+1. added use strict (line 1)
+2. removed variable assignment on getAdj
+3. removed style width 33.3% for generated pizzas (line 358)
+4. replaced query with document.getElementById
+5. updated DetermineDx to take window width (instead of getting value each time)
+6. Simplified calculation and removed vars (line 423)
+7. Pulled calculations out of for loop in ChangePizzaSizes (line 428)
+8. Added getStyle and assign all pizzas the same style based on pizza size change.  Removed unnecessary loop.
+9. Pull document.getElementById out of append pizza loops (line 464)
+10. Pulled document height calculation out of for loop and assigned to variable (line 498)
+11. Replaced query selector with variable (line 529).
+
+### pizza.html
+1. Removed inline style width 33.3% and replaced with class in css file (line 106, 124)
+2. Updated javascript to use minified version (line 142)
