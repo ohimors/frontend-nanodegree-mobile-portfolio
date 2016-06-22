@@ -19,7 +19,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: 'css',
                     src: ['*.css', '!*.min.css'],
-                    dest: 'release/css',
+                    dest: 'dist/css',
                     ext: '.min.css'
                 }]
             }
@@ -27,7 +27,7 @@ module.exports = function (grunt) {
         uglify: {
             build: {
                 files: {
-                    'dest/perfmatters.min.js': ['js/*.js']
+                    'dist/perfmatters.min.js': ['src/*.js']
                 }
             }
         }
