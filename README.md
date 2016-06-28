@@ -57,8 +57,8 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 
 ### Project Instructions
 1.  Execute npm install
-2.  Execute grunt
-3.  Execute python -m SimpleHttpServer
+2.  Execute grunt cssmin && grunt copy && grunt uglify
+3.  cd /dist && Execute python -m SimpleHttpServer
 
 ### main.js changes
 1. added use strict (line 1)

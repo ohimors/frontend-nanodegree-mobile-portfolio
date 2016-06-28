@@ -17,7 +17,7 @@ module.exports = function (grunt) {
             target: {
                 files: [{
                     expand: true,
-                    cwd: 'css',
+                    cwd: 'src/css',
                     src: ['*.css', '!*.min.css'],
                     dest: 'dist/css',
                     ext: '.min.css'
@@ -31,6 +31,14 @@ module.exports = function (grunt) {
                     'dist/perfmatters.min.js': ['src/perfmatters.js']
                 }
             }
+        },
+        copy: {
+            main: {
+                files: [
+                    //copy all css into distribution folder
+                    {expand: true, cwd: 'src', src: '**', dest: 'dist/'}
+                ]
+            }
         }
     });
 
@@ -39,6 +47,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-pagespeed');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     grunt.registerTask('default', ['jshint', 'uglify']);
 
