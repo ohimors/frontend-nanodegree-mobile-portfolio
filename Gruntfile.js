@@ -27,7 +27,8 @@ module.exports = function (grunt) {
         uglify: {
             build: {
                 files: {
-                    'dist/perfmatters.min.js': ['src/*.js']
+                    'dist/main.min.js': ['src/main.js'],
+                    'dist/perfmatters.min.js': ['src/perfmatters.js']
                 }
             }
         }
